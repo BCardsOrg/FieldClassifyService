@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ServicesNetworkDataSet" targetNamespace="http://tempuri.org/ServicesNetworkDataSet.xsd" xmlns:mstns="http://tempuri.org/ServicesNetworkDataSet.xsd" xmlns="http://tempuri.org/ServicesNetworkDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ServicesNetworkDataSet" msdata:IsDataSet="true" msdata:Locale="en-US" msprop:Generator_UserDSName="ServicesNetworkDataSet" msprop:Generator_DataSetName="ServicesNetworkDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ServicesHost" msprop:Generator_UserTableName="ServicesHost" msprop:Generator_RowDeletedName="ServicesHostRowDeleted" msprop:Generator_TableClassName="ServicesHostDataTable" msprop:Generator_RowChangedName="ServicesHostRowChanged" msprop:Generator_RowClassName="ServicesHostRow" msprop:Generator_RowChangingName="ServicesHostRowChanging" msprop:Generator_RowEvArgName="ServicesHostRowChangeEvent" msprop:Generator_RowEvHandlerName="ServicesHostRowChangeEventHandler" msprop:Generator_TablePropName="ServicesHost" msprop:Generator_TableVarName="tableServicesHost" msprop:Generator_RowDeletingName="ServicesHostRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" />
+              <xs:element name="Machine" msprop:Generator_UserColumnName="Machine" msprop:Generator_ColumnPropNameInRow="Machine" msprop:Generator_ColumnVarNameInTable="columnMachine" msprop:Generator_ColumnPropNameInTable="MachineColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IPAddress" msprop:Generator_UserColumnName="IPAddress" msprop:Generator_ColumnPropNameInRow="IPAddress" msprop:Generator_ColumnVarNameInTable="columnIPAddress" msprop:Generator_ColumnPropNameInTable="IPAddressColumn" type="xs:string" />
+              <xs:element name="AccessCost" msprop:Generator_UserColumnName="AccessCost" msprop:Generator_ColumnPropNameInRow="AccessCost" msprop:Generator_ColumnVarNameInTable="columnAccessCost" msprop:Generator_ColumnPropNameInTable="AccessCostColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Application" msprop:Generator_UserTableName="Application" msprop:Generator_RowDeletedName="ApplicationRowDeleted" msprop:Generator_TableClassName="ApplicationDataTable" msprop:Generator_RowChangedName="ApplicationRowChanged" msprop:Generator_RowClassName="ApplicationRow" msprop:Generator_RowChangingName="ApplicationRowChanging" msprop:Generator_RowEvArgName="ApplicationRowChangeEvent" msprop:Generator_RowEvHandlerName="ApplicationRowChangeEventHandler" msprop:Generator_TablePropName="Application" msprop:Generator_TableVarName="tableApplication" msprop:Generator_RowDeletingName="ApplicationRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Role" msprop:Generator_UserTableName="Role" msprop:Generator_RowDeletedName="RoleRowDeleted" msprop:Generator_TableClassName="RoleDataTable" msprop:Generator_RowChangedName="RoleRowChanged" msprop:Generator_RowClassName="RoleRow" msprop:Generator_RowChangingName="RoleRowChanging" msprop:Generator_RowEvArgName="RoleRowChangeEvent" msprop:Generator_RowEvHandlerName="RoleRowChangeEventHandler" msprop:Generator_TablePropName="Role" msprop:Generator_TableVarName="tableRole" msprop:Generator_RowDeletingName="RoleRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ServicesHostName" msprop:Generator_UserColumnName="ServicesHostName" msprop:Generator_ColumnPropNameInRow="ServicesHostName" msprop:Generator_ColumnVarNameInTable="columnServicesHostName" msprop:Generator_ColumnPropNameInTable="ServicesHostNameColumn" type="xs:string" />
+              <xs:element name="AppName" msprop:Generator_UserColumnName="AppName" msprop:Generator_ColumnPropNameInRow="AppName" msprop:Generator_ColumnVarNameInTable="columnAppName" msprop:Generator_ColumnPropNameInTable="AppNameColumn" type="xs:string" />
+              <xs:element name="Role" msprop:Generator_UserColumnName="Role" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInTable="RoleColumn" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="ServicesNetworkDataSetKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ServicesHost" />
+      <xs:field xpath="mstns:Name" />
+    </xs:unique>
+    <xs:unique name="key1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Application" />
+      <xs:field xpath="mstns:Name" />
+    </xs:unique>
+    <xs:unique name="ServicesNetworkDataSetKey2" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Role" />
+      <xs:field xpath="mstns:ServicesHostName" />
+      <xs:field xpath="mstns:AppName" />
+      <xs:field xpath="mstns:Role" />
+    </xs:unique>
+    <xs:keyref name="ApplicationRole" refer="key1" msprop:rel_Generator_UserRelationName="ApplicationRole" msprop:rel_Generator_RelationVarName="relationApplicationRole" msprop:rel_Generator_UserChildTable="Role" msprop:rel_Generator_UserParentTable="Application" msprop:rel_Generator_ParentPropName="ApplicationRow" msprop:rel_Generator_ChildPropName="GetRoleRows" msdata:AcceptRejectRule="Cascade">
+      <xs:selector xpath=".//mstns:Role" />
+      <xs:field xpath="mstns:AppName" />
+    </xs:keyref>
+    <xs:keyref name="ServicesHostRole" refer="ServicesNetworkDataSetKey1" msprop:rel_Generator_UserRelationName="ServicesHostRole" msprop:rel_Generator_RelationVarName="relationServicesHostRole" msprop:rel_Generator_UserChildTable="Role" msprop:rel_Generator_UserParentTable="ServicesHost" msprop:rel_Generator_ParentPropName="ServicesHostRow" msprop:rel_Generator_ChildPropName="GetRoleRows" msdata:AcceptRejectRule="Cascade">
+      <xs:selector xpath=".//mstns:Role" />
+      <xs:field xpath="mstns:ServicesHostName" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

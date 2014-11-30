@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9457522B-935A-4FF9-8713-140C8B4429F8}"
+	ProjectSection(SolutionItems) = preProject
+		localtestrun.testrunconfig = localtestrun.testrunconfig
+		TiS.Recognition.Common2.vsmdi = TiS.Recognition.Common2.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiS.Recognition.Common", "TiS.Recognition.Common.csproj", "{35127930-8A68-4F44-8FDB-A0C7F72628D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecognitionCommonTests", "RecognitionCommonTests\RecognitionCommonTests.csproj", "{3DE21575-9608-452F-A956-ADF66AAFD3C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F} = {7C91BE28-4350-4F76-9CF8-50BC0125A41F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recognition.Locator", "..\Recognition.Locator\Recognition.Locator.csproj", "{7C91BE28-4350-4F76-9CF8-50BC0125A41F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tisilsrvtfs01:8080/tfs/rd-il
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TiS.Recognition.Common.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = RecognitionCommonTests\\RecognitionCommonTests.csproj
+		SccProjectName2 = RecognitionCommonTests
+		SccLocalPath2 = RecognitionCommonTests
+		SccProjectUniqueName3 = ..\\Recognition.Locator\\Recognition.Locator.csproj
+		SccProjectName3 = ../Recognition.Locator
+		SccLocalPath3 = ..\\Recognition.Locator
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = TiS.Recognition.Common2.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|eFlowPlatform = Debug|eFlowPlatform
+		Release|Any CPU = Release|Any CPU
+		Release|eFlowPlatform = Release|eFlowPlatform
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Debug|eFlowPlatform.ActiveCfg = Debug|Any CPU
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Debug|eFlowPlatform.Build.0 = Debug|Any CPU
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Release|eFlowPlatform.ActiveCfg = Release|Any CPU
+		{35127930-8A68-4F44-8FDB-A0C7F72628D7}.Release|eFlowPlatform.Build.0 = Release|Any CPU
+		{3DE21575-9608-452F-A956-ADF66AAFD3C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE21575-9608-452F-A956-ADF66AAFD3C8}.Debug|eFlowPlatform.ActiveCfg = Debug|Any CPU
+		{3DE21575-9608-452F-A956-ADF66AAFD3C8}.Debug|eFlowPlatform.Build.0 = Debug|Any CPU
+		{3DE21575-9608-452F-A956-ADF66AAFD3C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE21575-9608-452F-A956-ADF66AAFD3C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE21575-9608-452F-A956-ADF66AAFD3C8}.Release|eFlowPlatform.ActiveCfg = Release|Any CPU
+		{3DE21575-9608-452F-A956-ADF66AAFD3C8}.Release|eFlowPlatform.Build.0 = Release|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Debug|eFlowPlatform.ActiveCfg = Debug|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Debug|eFlowPlatform.Build.0 = Debug|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Release|eFlowPlatform.ActiveCfg = Release|Any CPU
+		{7C91BE28-4350-4F76-9CF8-50BC0125A41F}.Release|eFlowPlatform.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,522 @@
+﻿<UserControl x:Class="TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.Views.AnalyseNumView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:vm="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ViewModels"
+             d:DesignHeight="700"
+             d:DesignWidth="361"
+             mc:Ignorable="d">
+
+    <TabControl>
+        <TabItem Header="Fields">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+
+                <DockPanel>
+
+
+                    <DataGrid Name="FeatureHolder4"
+                              Grid.Column="0"
+                              Width="400"
+                              VerticalContentAlignment="Center"
+                              AutoGenerateColumns="False"
+                              Background="White"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserResizeRows="False"
+                              DockPanel.Dock="Left"
+                              ItemsSource="{Binding AverageFeaturesPerField}"
+                              MinRowHeight="26"
+                              RowHeaderWidth="5"
+                              RowStyle="{DynamicResource DefaultGridRowStyle}"
+                              SelectionChanged="FeatureHolder4_SelectionChanged_1"
+                              SelectionMode="Single">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*"
+                                                Binding="{Binding Item1}"
+                                                Header="Field">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn x:Name="AppRemark2"
+                                                Width="*"
+                                                Binding="{Binding Item3}"
+                                                Header="Percent Match">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <Grid DockPanel.Dock="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="150" />
+                        </Grid.RowDefinitions>
+                        <DataGrid Name="FeatureHolder7"
+                                  Grid.Column="1"
+                                  Width="300"
+                                  VerticalContentAlignment="Center"
+                                  AutoGenerateColumns="False"
+                                  Background="White"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  CanUserReorderColumns="False"
+                                  CanUserResizeColumns="False"
+                                  CanUserResizeRows="False"
+                                  ItemsSource="{Binding FieldFeatureGrades}"
+                                  MinRowHeight="26"
+                                  RowHeaderWidth="5"
+                                  RowStyle="{DynamicResource DefaultGridRowStyle}"
+                                  SelectedItem="{Binding SelectedFeature}"
+                                  SelectionMode="Single">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn x:Name="AppName5"
+                                                    Width="*"
+                                                    Binding="{Binding Key}"
+                                                    Header="Feautre">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn x:Name="AppRemark6"
+                                                    Width="*"
+                                                    Binding="{Binding Value}"
+                                                    Header="Quality">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+
+
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <oxy:Plot Model="{Binding FeatureHistogram}" />
+                        </Grid>
+
+                    </Grid>
+
+
+
+
+
+
+                    <Grid Grid.Row="0"
+                          Grid.Column="2"
+                          Width="900"
+                          DockPanel.Dock="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <DataGrid Name="dataGrid1"
+                                  Grid.Row="0"
+                                  Grid.Column="2"
+                                  VerticalContentAlignment="Center"
+                                  AutoGenerateColumns="False"
+                                  Background="White"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  CanUserReorderColumns="False"
+                                  CanUserResizeColumns="False"
+                                  CanUserResizeRows="False"
+                                  ItemsSource="{Binding FalsePositiveResults}"
+                                  MinRowHeight="26"
+                                  RowHeaderWidth="5"
+                                  RowStyle="{DynamicResource DefaultGridRowStyle}"
+                                  SelectionChanged="dataGrid1_SelectionChanged"
+                                  SelectionMode="Single">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Width="2*"
+                                                    Binding="{Binding doc.DocumentName}"
+                                                    Header="Doc">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Width="3*"
+                                                    Binding="{Binding Field.Content}"
+                                                    Header="False Positive">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="1*"
+                                                    Binding="{Binding MatchQuality}"
+                                                    Header="Confidance">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="3*"
+                                                    Binding="{Binding ExpectedField.Content}"
+                                                    Header="Expected">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="1*"
+                                                    Binding="{Binding ExpectedMatchQuality,
+                                                                      Mode=OneWay}"
+                                                    Header="Confidance">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Grid Grid.Row="1" Background="LightGray">
+                            <DockPanel>
+                                <controls:ImageViewerMultiPage MaxWidth="700"
+                                                               BorderBrush="Gray"
+                                                               BorderThickness="3"
+                                                               DataContext="{Binding ImageViewerVM}" />
+                                <DataGrid Name="wordsCandidatesList"
+                                          Width="200"
+                                          HorizontalAlignment="Right"
+                                          AutoGenerateColumns="False"
+                                          Background="White"
+                                          CanUserAddRows="False"
+                                          CanUserDeleteRows="False"
+                                          CanUserReorderColumns="False"
+                                          CanUserResizeColumns="False"
+                                          CanUserResizeRows="False"
+                                          DockPanel.Dock="Right"
+                                          ItemsSource="{Binding WordsCandidates}"
+                                          MinRowHeight="26"
+                                          RowHeaderWidth="5"
+                                          RowStyle="{DynamicResource DefaultGridRowStyle}"
+                                          SelectionChanged="wordsCandidatesList_SelectionChanged"
+                                          SelectionMode="Single">
+
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="*"
+                                                            Binding="{Binding Content}"
+                                                            Header="Candidates">
+                                            <DataGridTextColumn.CellStyle>
+                                                <Style TargetType="DataGridCell">
+                                                    <Setter Property="ToolTip" Value="{Binding Content}" />
+                                                </Style>
+                                            </DataGridTextColumn.CellStyle>
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style>
+                                                    <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </DockPanel>
+                        </Grid>
+                    </Grid>
+
+
+
+                    <DataGrid Name="FeatureHolder9"
+                              Grid.Column="3"
+                              Width="1200"
+                              VerticalContentAlignment="Center"
+                              AutoGenerateColumns="False"
+                              Background="White"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserResizeRows="False"
+                              DockPanel.Dock="Left"
+                              ItemsSource="{Binding FPAndExpectedGrade}"
+                              MinRowHeight="26"
+                              RowHeaderWidth="5"
+                              RowStyle="{DynamicResource DefaultGridRowStyle}"
+                              SelectionChanged="FeatureHolder9_SelectionChanged"
+                              SelectionMode="Single">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="6*"
+                                                Binding="{Binding Item1}"
+                                                Header="Feature">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="3*"
+                                                Binding="{Binding Item2}"
+                                                Header="STD For Field">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="3*"
+                                                Binding="{Binding Item3}"
+                                                Header="Avg For Field">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="3*"
+                                                Binding="{Binding Item4}"
+                                                Header="FP Grades">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="3*"
+                                                Binding="{Binding Item5}"
+                                                Header="Exp Grades">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="3*"
+                                                Binding="{Binding Item6}"
+                                                Header="Diff">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+
+                    <Grid Grid.Row="0"
+                          Grid.Column="4"
+                          Width="500"
+                          DockPanel.Dock="Left">
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0">
+                                <Run Text="Feature : " />
+                                <Run Text="{Binding ChosenResult.Item1, Mode=OneWay}" />
+                            </TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="0">
+                                <Run Text=" Exp Old Confidance : " />
+                                <Run Text="{Binding ChosenFieldReport.ExpectedMatchQuality, Mode=OneWay}" />
+                            </TextBlock>
+                            <TextBlock Grid.Row="2" Grid.Column="0">
+                                <Run Text=" Old Grade : " />
+                                <Run Text="{Binding ChosenResult.Item5, Mode=OneWay}" />
+                            </TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="0">
+                                <Run Text=" Test Grade : " />
+                            </TextBlock>
+
+                            <TextBox x:Name="TextBoxGrade"
+                                     Grid.Row="4"
+                                     Grid.Column="0"
+                                     MinWidth="200" />
+
+                            <Button Grid.Row="5"
+                                    Grid.Column="0"
+                                    Click="Button_Click"
+                                    Content="Test with new grade" />
+
+                            <TextBlock Grid.Row="6" Grid.Column="0">
+                                <Run Text=" New Confidance : " />
+                                <Run Text="{Binding NewConfidanceResult}" />
+                            </TextBlock>
+
+                        </Grid>
+                    </Grid>
+
+
+
+
+
+                </DockPanel>
+            </ScrollViewer>
+
+        </TabItem>
+
+
+        <TabItem Header="Features">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible">
+
+                <Grid>
+
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*" />
+                        <RowDefinition Height="120" />
+                    </Grid.RowDefinitions>
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="900" />
+                        <ColumnDefinition Width="800" />
+                        <ColumnDefinition Width="500" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <DataGrid Name="FeatureList1"
+                              Grid.Row="0"
+                              Grid.Column="0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Stretch"
+                              VerticalContentAlignment="Center"
+                              AutoGenerateColumns="False"
+                              Background="White"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserResizeRows="False"
+                              ItemsSource="{Binding viewmodeltub2.FeatureGradeList}"
+                              MinRowHeight="26"
+                              RowHeaderWidth="5"
+                              RowStyle="{DynamicResource DefaultGridRowStyle}"
+                              SelectedItem="{Binding viewmodeltub2.SelectedFeature}"
+                              SelectionChanged="FeatureList1_SelectionChanged_1"
+                              SelectionMode="Single">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Width="2*"
+                                                Binding="{Binding Key}"
+                                                Header="Feature">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="3*"
+                                                Binding="{Binding Value}"
+                                                Header="Grade">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid Name="FeatureList2"
+                              Grid.Row="0"
+                              Grid.Column="1"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Stretch"
+                              VerticalContentAlignment="Center"
+                              AutoGenerateColumns="False"
+                              Background="White"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False"
+                              CanUserReorderColumns="False"
+                              CanUserResizeColumns="False"
+                              CanUserResizeRows="False"
+                              ItemsSource="{Binding viewmodeltub2.FieldsFeatureGradeList}"
+                              MinRowHeight="26"
+                              RowHeaderWidth="5"
+                              RowStyle="{DynamicResource DefaultGridRowStyle}"
+                              SelectedItem="{Binding viewmodeltub2.ChosenField}"
+                              SelectionChanged="FeatureList1_SelectionChanged"
+                              SelectionMode="Single">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Width="2*"
+                                                Binding="{Binding Key}"
+                                                Header="Field">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="3*"
+                                                Binding="{Binding Value}"
+                                                Header="Grade">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <Grid Grid.Row="0" Grid.Column="2">
+                        <oxy:Plot Model="{Binding viewmodeltub2.FeatureHistogram}" />
+                    </Grid>
+
+                </Grid>
+            </ScrollViewer>
+        </TabItem>
+
+        <TabItem Header="Summary">
+            <Grid Grid.Row="0" Grid.Column="0">
+                <oxy:Plot Model="{Binding Summary.FPMatchPlot}" />
+            </Grid>
+        </TabItem>
+
+    </TabControl>
+</UserControl>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{46153597-B5FB-4032-8FD0-12484CF428D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TiS.Recognition.FieldClassifyService.InterfaceForReflection</RootNamespace>
+    <AssemblyName>TiS.Recognition.FieldClassifyService.InterfaceForReflection</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\deploy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\Deployment\eFLOW\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IFieldClassifierService.cs" />
+    <Compile Include="IFieldFeature.cs" />
+    <Compile Include="ISolutionFeature.cs" />
+    <Compile Include="Models\AccordConfigurationClassifier.cs" />
+    <Compile Include="Models\CheckBoxItem.cs" />
+    <Compile Include="Models\ConfigurationClassifierImage.cs" />
+    <Compile Include="Models\ConfigurationFeatureExtraction.cs" />
+    <Compile Include="Models\ConfigurationGaussianKernel.cs" />
+    <Compile Include="Models\ConfigurationPolynomialKernel.cs" />
+    <Compile Include="Models\FeatureSelectModel.cs" />
+    <Compile Include="Models\FieldReportItem.cs" />
+    <Compile Include="Models\Histogram.cs" />
+    <Compile Include="Models\KernelTypes.cs" />
+    <Compile Include="Models\ListUtil.cs" />
+    <Compile Include="Models\NotifyPropertyChange.cs" />
+    <Compile Include="Models\Page.cs" />
+    <Compile Include="Models\PageMatchData.cs" />
+    <Compile Include="Models\PersistentEntity.cs" />
+    <Compile Include="Models\ReportResultItem.cs" />
+    <Compile Include="Models\SelectionStrategies.cs" />
+    <Compile Include="Models\Statistics.cs" />
+    <Compile Include="Models\TuneScales.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API_GoldenData\API_GoldenData.csproj">
+      <Project>{233f5e41-9939-4a43-9fd7-bd06d7650668}</Project>
+      <Name>API_GoldenData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

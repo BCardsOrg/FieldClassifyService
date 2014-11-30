@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls.ImageViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:effects="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls"
+             xmlns:local="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="ImageViewerUserControl"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+	<UserControl.Resources>
+		<ImageBrush x:Key="effectImageBrush" ImageSource="{Binding MaskBitmapSource, Mode=OneWay}" />
+		<local:ControlsVisibiltyConverter x:Key="ControlsVisibiltyConverter" />
+		<local:ControlsHeightConverter x:Key="ControlsHeightConverter" />
+	</UserControl.Resources>
+
+	<Grid x:Name="gridMain" Margin="2">
+		<DockPanel LastChildFill="True">
+
+			<!--
+				<DockPanel Height ="25" Background ="Transparent" DockPanel.Dock="Top">
+				<TextBox x:Name="textBoxImageInformation" Text="{Binding FileName}" Width ="Auto" DockPanel.Dock ="Left"/>
+				</DockPanel>
+			-->
+			<StatusBar x:Name="statusBar"
+			           Height="{Binding ControlsHeight,
+			                            Converter={StaticResource ControlsHeightConverter},
+			                            FallbackValue=0}"
+			           VerticalAlignment="Bottom"
+			           DockPanel.Dock="Bottom"
+			           Visibility="{Binding ControlsVisibilty,
+			                                Converter={StaticResource ControlsVisibiltyConverter},
+			                                FallbackValue=Hidden}">
+				<DockPanel LastChildFill="True">
+					<TextBlock x:Name="textBlockSliderValue"
+					           Width="40"
+					           Height="25"
+					           ClipToBounds="True"
+					           Text="35%" />
+					<TextBlock x:Name="textBlockDescription"
+					           Height="25"
+					           ClipToBounds="True"
+					           Text="{Binding Description}" />
+				</DockPanel>
+			</StatusBar>
+
+			<!--  "toolbar" controls area under image  -->
+			<DockPanel Height="{Binding ControlsHeight,
+			                            Converter={StaticResource ControlsHeightConverter},
+			                            FallbackValue=0}"
+			           Background="Transparent"
+			           DockPanel.Dock="Bottom"
+			           Visibility="{Binding ControlsVisibilty,
+			                                Converter={StaticResource ControlsVisibiltyConverter},
+			                                FallbackValue=Hidden}">
+				<DockPanel Background="Transparent"
+				           DockPanel.Dock="Left"
+				           LastChildFill="False">
+					<Button x:Name="buttonZoomOut"
+					        Width="25"
+					        Height="25"
+					        HorizontalAlignment="Left"
+					        VerticalAlignment="Top"
+					        Background="{x:Null}"
+					        Click="ZoomOut_Click"
+					        ToolTip="Zoom Out">
+						<TextBlock Text="-" />
+					</Button>
+					<Slider x:Name="slider"
+					        Width="100"
+					        ClipToBounds="False"
+					        Interval="1"
+					        IsSnapToTickEnabled="True"
+					        Maximum="31"
+					        Minimum="1"
+					        TickFrequency="1"
+					        TickPlacement="None"
+					        ToolTip="Zoom %"
+					        UseLayoutRounding="True"
+					        Value="7" />
+					<Button x:Name="buttonZoomIn"
+					        Width="25"
+					        Height="25"
+					        HorizontalAlignment="Right"
+					        VerticalAlignment="Top"
+					        Background="{x:Null}"
+					        Click="ZoomIn_Click"
+					        ToolTip="Zoom In">
+						<TextBlock Text="+" />
+					</Button>
+					<DockPanel x:Name="PlaceHolderDockPanel" />
+				</DockPanel>
+			</DockPanel>
+
+			<!--  image display area: image is placedin a ScrollViewer, with 2 canvases, 1 for resizing the ScrollViewer to get the scrollbars to adjust, and 1 for the ROI rectangle(s)  -->
+			<ScrollViewer x:Name="scrollViewer"
+			              ClipToBounds="True"
+			              HorizontalScrollBarVisibility="Auto"
+			              VerticalScrollBarVisibility="Auto">
+				<Grid Name="gridContainer">
+					<Image x:Name="displayedImage"
+					       Width="{Binding Source.PixelWidth,
+					                       RelativeSource={RelativeSource Self}}"
+					       Height="{Binding Source.PixelHeight,
+					                        RelativeSource={RelativeSource Self}}"
+					       Source="{Binding BitmapSource,
+					                        Mode=OneWay}"
+					       Stretch="Uniform">
+						<Image.Effect>
+							<effects:MaskSampleShaderEffect MaskSampler="{DynamicResource effectImageBrush}" />
+						</Image.Effect>
+					</Image>
+					<Canvas x:Name="drawingCanvas"
+					        Width="{Binding PersistentViewState.VisualWidth}"
+					        Height="{Binding PersistentViewState.VisualHeight}"
+					        Margin="0"
+					        Background="Transparent"
+					        ClipToBounds="True"
+					        Opacity="1.00" />
+
+				</Grid>
+			</ScrollViewer>
+
+		</DockPanel>
+	</Grid>
+</UserControl>

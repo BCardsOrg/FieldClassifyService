@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRunConfiguration id="61749309-0e41-4472-9fc4-98f42e56fb4f" name="Local Test Run" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description>This is a default test run configuration for a local test run.</Description>
+  <Timeouts runTimeout="0" testTimeout="300000" agentNotRespondingTimeout="300000" deploymentTimeout="300000" />
+  <Deployment>
+    <DeploymentItem filename="RecognitionCommonTests\P0003.PRD" />
+    <DeploymentItem filename="RecognitionCommonTests\PrdFiles\OldTestPrd.PRD" />
+    <DeploymentItem filename="RecognitionCommonTests\P0001.PRD" />
+    <DeploymentItem filename="RecognitionCommonTests\P0002.PRD" />
+    <DeploymentItem filename="RecognitionCommonTests\PrdFiles\TestPrd.TIF" />
+  </Deployment>
+  <NamingScheme />
+  <Hosts />
+</TestRunConfiguration>

@@ -1,0 +1,206 @@
+﻿<Window x:Class="TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:tisconvert="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ValueConverter"
+        xmlns:uc="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls"
+        xmlns:vm="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ViewModels"
+        Title="TIS - Image Classifier Toolkit"
+        WindowState="Maximized">
+    <Window.Resources>
+        <vm:SectionsViewModel x:Key="SectionsViewModel" />
+        <tisconvert:TrueToVisibility x:Key="TrueToVisibility" />
+    </Window.Resources>
+    <DockPanel>
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              Grid.ColumnSpan="999"
+              Background="LightGray"
+              DockPanel.Dock="Bottom">
+            <ItemsControl Name="StatusBarRegion" prism:RegionManager.RegionName="StatusBarRegion">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
+
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TabControl Name="tabCntr"
+                        DataContext="{DynamicResource SectionsViewModel}"
+                        SelectionChanged="tabCntr_SelectionChanged"
+                        TabStripPlacement="Left">
+                <TabControl.Resources>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Height" Value="30" />
+                        <Setter Property="IsEnabled" Value="{Binding Enable}" />
+                        <Setter Property="HeaderTemplate">
+                            <Setter.Value>
+                                <DataTemplate DataType="{x:Type TabItem}">
+                                    <StackPanel Width="100"
+                                                DataContext="{TemplateBinding DataContext}"
+                                                Orientation="Horizontal">
+                                        <CheckBox HorizontalAlignment="Left"
+                                                  VerticalAlignment="Center"
+                                                  IsChecked="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                                                                     AncestorType={x:Type TabItem}},
+                                                                      Path=DataContext.IsValid,
+                                                                      Mode=OneWay}"
+                                                  IsEnabled="False" />
+                                        <TextBlock Margin="10,0" Text="{Binding Mode=OneTime}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabControl.Resources>
+                <TabItem Name="configurationHolder"
+                         DataContext="{Binding Configuration}"
+                         Header="Configuration">
+                    <ItemsControl Name="ConfigurationRegion"
+                                  Margin="5,0"
+                                  prism:RegionManager.RegionName="ConfigurationRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Name="categorizeHolder"
+                         DataContext="{Binding Categorize}"
+                         Header="Categorize">
+                    <ItemsControl Name="CategorizeRegion"
+                                  Margin="5,0"
+                                  prism:RegionManager.RegionName="CategorizeRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Name="trainTestHolder"
+                         DataContext="{Binding TrainTest}"
+                         Header="Train/Test">
+                    <ItemsControl Name="trainTestRegion"
+                                  Margin="5,0"
+                                  prism:RegionManager.RegionName="TrainTestRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Name="runHolder"
+                         DataContext="{Binding Run}"
+                         Header="Run">
+                    <ItemsControl Name="RunRegion"
+                                  Margin="5,0"
+                                  prism:RegionManager.RegionName="RunRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Name="reportHolder"
+                         DataContext="{Binding Report}"
+                         Header="Report">
+                    <ItemsControl Name="ReportRegion"
+                                  Width="500"
+                                  Margin="5,0"
+                                  prism:RegionManager.RegionName="ReportRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Name="AnalyseHolder"
+                         DataContext="{Binding Analyse}"
+                         Header="Analyse">
+                    <ItemsControl Name="AnalyseRegion"
+                                  Width="1500"
+                                  Margin="5,0"
+                                  prism:RegionManager.RegionName="AnalyseRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Name="AnalyseNumHolder"
+                         DataContext="{Binding AnalyseNum}"
+                         Header="AnalyseNum">
+                    <ItemsControl Name="AnalyseNumRegion"
+                                  Width="1700"
+                                  Margin="5,0"
+                                  ClipToBounds="True"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                  SnapsToDevicePixels="True"
+                                  prism:RegionManager.RegionName="AnalyseNumRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid ClipToBounds="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+                <TabItem Name="historyHolder"
+                         DataContext="{Binding History}"
+                         Header="History">
+                    <ItemsControl Name="HistoryRegion"
+                                  Margin="5,0"
+                                  prism:RegionManager.RegionName="HistoryRegion">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </TabItem>
+            </TabControl>
+
+            <Grid Grid.Row="1">
+                <ItemsControl Name="SectionsRegion" prism:RegionManager.RegionName="SectionsRegion">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+            </Grid>
+
+
+        </Grid>
+
+        <Grid Grid.Row="0"
+              Grid.Column="1"
+              DataContext="{DynamicResource SectionsViewModel}"
+              Visibility="{Binding IsShowPagesView,
+                                   Converter={StaticResource TrueToVisibility}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70*" />
+                <RowDefinition Height="30*" />
+            </Grid.RowDefinitions>
+
+            <uc:PagesView Grid.Row="0" />
+            <uc:ConsoleView Grid.Row="1" DockPanel.Dock="Bottom" />
+        </Grid>
+
+
+    </DockPanel>
+</Window>

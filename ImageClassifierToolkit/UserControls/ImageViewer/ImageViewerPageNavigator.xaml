@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls.ImageViewerPageNavigator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="25" d:DesignWidth="125"
+             xmlns:local="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls">
+    <UserControl.Resources>
+        <local:AddOneValueConverter x:Key="PageIndexToNumberConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel Background="Transparent"
+                   DockPanel.Dock="Left"
+                   LastChildFill="True">
+            <Button x:Name="buttonFirstPage"
+                    Width="25"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    Click="buttonFirstPage_Click"
+                    ToolTip="First page">
+                <TextBlock Text="|&lt;" />
+            </Button>
+            <Button x:Name="buttonPreviousPage"
+                    Width="25"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    Click="buttonPreviousPage_Click"
+                    ToolTip="Previous page">
+                <TextBlock Text="&lt;" />
+            </Button>                        
+            <Label x:Name="labelPageNumber"
+                   Width="25" 
+                   Height="25"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch"
+                   HorizontalContentAlignment="Center"
+                   Background="{x:Null}"     
+                   BorderThickness="0.8"
+                   BorderBrush="#707070">
+                <TextBlock Text="{Binding PageIndex, Converter={StaticResource PageIndexToNumberConverter}}" TextAlignment="Center" HorizontalAlignment="Center" ToolTip="Page number"/>
+            </Label>
+            <Button x:Name="buttonNextPage"
+                    Width="25"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    Click ="buttonNextPage_Click"
+                    ToolTip="Next page">
+                <TextBlock Text="&gt;" />
+                </Button>
+            <Button x:Name="buttonLastPage"
+                    Width="25"
+                    Height="25"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    Click="buttonLastPage_Click"                   
+                    ToolTip="Last page">
+                <TextBlock Text="&gt;|" />
+            </Button>
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<Application x:Class="ImageClassifierToolkit.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:st="clr-namespace:System;assembly=mscorlib"
+             DispatcherUnhandledException="Application_DispatcherUnhandledException"
+             
+             >
+    <Application.Resources >
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themse\Generic.xaml" ></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

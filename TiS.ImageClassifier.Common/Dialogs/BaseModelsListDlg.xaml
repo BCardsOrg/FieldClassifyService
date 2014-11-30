@@ -1,0 +1,132 @@
+﻿<Window x:Class="TiS.Recognition.FieldClassifyService.Common.Dialogs.BaseModelsListDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Save Model ..."
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight"
+        UseLayoutRounding="True"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Content="Application:" />
+            <ComboBox x:Name="ApplicationsListBox"
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      Width="100"
+                      Height="24"
+                      Margin="2"
+                      IsEditable="False"
+                      IsEnabled="True"
+                      IsReadOnly="False"
+                      ItemsSource="{Binding Applications}"
+                      SelectedValue="{Binding CurrentApplication}" />
+        </Grid>
+        <Grid>
+            <ListBox x:Name="ClassesListBox"
+                     Height="200"
+                     ItemsSource="{Binding Models}"
+                     SelectionMode="Single">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="FontWeight" Value="Bold" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+                        </Style.Resources>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.Resources>
+                    <!--  The frame that is applied to all items  -->
+                    <ControlTemplate x:Key="commonFrameTemplate" TargetType="{x:Type ContentControl}">
+                        <Border BorderBrush="Transparent"
+                                BorderThickness="2"
+                                Padding="5">
+                            <StackPanel Orientation="Horizontal">
+                                <ContentPresenter Margin="5,0" />
+                                <!--  Where the individual templates end up  -->
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                    <!--
+                        Define templates without using a x:Key but setting the DataType,
+                        the template will automatically be applied, no need for a
+                        template-selector
+                    -->
+                    <!--
+                        <DataTemplate DataType="string">
+                        <TextBlock Text="{Binding SmartClasses}" />
+                        </DataTemplate>
+                    -->
+                </ListBox.Resources>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <!--
+                            By setting the content to {Binding} the templating is delegated
+                            in a way, if you must use a selector, define one here as
+                            ContentTemplateSelector
+                        -->
+
+                        <ContentControl Content="{Binding}" Template="{StaticResource commonFrameTemplate}" />
+
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
+        <Grid Name="modelNameSection" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center" Content="Name:" />
+            <TextBox Name="saveModelName"
+                     Grid.Column="1"
+                     Margin="10,5"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"
+                     Text="{Binding ElementName=ClassesListBox,
+                                    Path=SelectedItem,
+                                    Mode=OneWay}" />
+        </Grid>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="Ok"
+                    Width="70"
+                    Height="24"
+                    Margin="2,2,2,2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="Ok_Click"
+                    Content="Save"
+                    Padding="1" />
+            <Button Width="70"
+                    Height="24"
+                    Margin="2,2,2,2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="Cancel_Click"
+                    Content="Cancel"
+                    Padding="1" />
+
+        </StackPanel>
+    </StackPanel>
+</Window>

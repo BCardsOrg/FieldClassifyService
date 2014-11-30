@@ -1,0 +1,1680 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TiS.Recognition.Common</name>
+    </assembly>
+    <members>
+        <member name="T:TiS.Recognition.Common.IOCRData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TiS.Recognition.Common.IOCRData.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.IOCRData.Confidance">
+            <summary>
+            Gets the confidance.
+            </summary>
+            <value>
+            The confidance.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.IOCRData.Rectangle">
+            <summary>
+            Gets the rectangle.
+            </summary>
+            <value>
+            The rectangle.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.IChar">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IChar.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IChar.Confidence">
+            <summary>
+            Gets the confidence.
+            </summary>
+            <value>
+            The confidence.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IChar.Left">
+            <summary>
+            Gets the left.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IChar.Top">
+            <summary>
+            Gets the top.
+            </summary>
+            <value>
+            The top.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IChar.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IChar.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.ILine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.ILine.GetWord(System.Int32)">
+            <summary>
+            Gets the word.
+            </summary>
+            <param name="iWordIndex">Index of the i word.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.ILine.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.ILine.GetNoOfWords">
+            <summary>
+            Gets the get no of words.
+            </summary>
+            <value>
+            The get no of words.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.ILine.Left">
+            <summary>
+            Gets the left.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.ILine.Top">
+            <summary>
+            Gets the top.
+            </summary>
+            <value>
+            The top.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.ILine.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.ILine.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.IPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IPage.GetDeskew(System.Int32@,System.Int32@)">
+            <summary>
+            Gets the deskew.
+            </summary>
+            <param name="iXSize">Size of the i x.</param>
+            <param name="iYSize">Size of the i y.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IPage.Load(System.Byte[],System.Int32)">
+            <summary>
+            Loads the specified o raw data.
+            </summary>
+            <param name="oRawData">The o raw data.</param>
+            <param name="oRawDataSize">Size of the o raw data.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IPage.Load(System.String)">
+            <summary>
+            Loads the specified s PRD file name.
+            </summary>
+            <param name="sPRDFileName">Name of the s PRD file.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IPage.Load">
+            <summary>
+            Loads this instance.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IPage.SetNextChar(System.Char,System.Int16,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the next character.
+            </summary>
+            <param name="cCharData">The c character data.</param>
+            <param name="iConfidence">The i confidence.</param>
+            <param name="iLeft">The i left.</param>
+            <param name="iTop">The i top.</param>
+            <param name="iWidth">Width of the i.</param>
+            <param name="iHeight">Height of the i.</param>
+            <param name="iLine">The i line.</param>
+            <param name="iWord">The i word.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IPage.Save(System.String)">
+            <summary>
+            Saves the specified s PRD file name.
+            </summary>
+            <param name="sPRDFileName">Name of the s PRD file.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IPage.GetLine(System.Int32)">
+            <summary>
+            Gets the line.
+            </summary>
+            <param name="iLineIndex">Index of the i line.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IPage.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IPage.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IPage.Resolution">
+            <summary>
+            Gets the resolution.
+            </summary>
+            <value>
+            The resolution.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IPage.GetNoOfLines">
+            <summary>
+            Gets the get no of lines.
+            </summary>
+            <value>
+            The get no of lines.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.IWord">
+            <summary>
+            IWord interface
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.IWord.GetChar(System.Int32)">
+            <summary>
+            Gets the character.
+            </summary>
+            <param name="iCharIndex">Index of the i character.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IWord.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IWord.GetNoOfChars">
+            <summary>
+            Gets the get no of chars.
+            </summary>
+            <value>
+            The get no of chars.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IWord.Left">
+            <summary>
+            Gets the left.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IWord.Top">
+            <summary>
+            Gets the top.
+            </summary>
+            <value>
+            The top.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IWord.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IWord.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.IWord.Style">
+            <summary>
+            Gets the style.
+            </summary>
+            <value>
+            The style.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.OCRCharResult">
+            <summary>
+            OCRCharResult
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.OCRCharResult.m_oChar">
+            <summary>
+            The m_o character
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRCharResult.#ctor(TiS.Recognition.Common.TChar)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.COM.OCRCharResult"/> class.
+            </summary>
+            <param name="oChar">The o character.</param>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRCharResult.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRCharResult.Confidence">
+            <summary>
+            Gets the confidence.
+            </summary>
+            <value>
+            The confidence.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRCharResult.Left">
+            <summary>
+            Gets the left.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRCharResult.Top">
+            <summary>
+            Gets the top.
+            </summary>
+            <value>
+            The top.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRCharResult.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRCharResult.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.OCRLineResult">
+            <summary>
+            OCRLineResult class
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRLineResult.#ctor(TiS.Recognition.Common.TLine)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.COM.OCRLineResult"/> class.
+            </summary>
+            <param name="oLine">The o line.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRLineResult.GetWord(System.Int32)">
+            <summary>
+            Gets the word.
+            </summary>
+            <param name="iWordIndex">Index of the i word.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRLineResult.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRLineResult.GetNoOfWords">
+            <summary>
+            Gets the get no of words.
+            </summary>
+            <value>
+            The get no of words.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRLineResult.Left">
+            <summary>
+            Gets the left.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRLineResult.Top">
+            <summary>
+            Gets the top.
+            </summary>
+            <value>
+            The top.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRLineResult.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRLineResult.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.OCRPageResult">
+            <summary>
+            OCRPageResult class
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRPageResult.GetDeskew(System.Int32@,System.Int32@)">
+            <summary>
+            Gets the deskew.
+            </summary>
+            <param name="iXSize">Size of the i x.</param>
+            <param name="iYSize">Size of the i y.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRPageResult.Load(System.Byte[],System.Int32)">
+            <summary>
+            Loads the specified o raw data.
+            </summary>
+            <param name="oRawData">The o raw data.</param>
+            <param name="oRawDataSize">Size of the o raw data.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRPageResult.Load">
+            <summary>
+            Loads this instance.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRPageResult.SetNextChar(System.Char,System.Int16,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the next character.
+            </summary>
+            <param name="cCharData">The c character data.</param>
+            <param name="iConfidence">The i confidence.</param>
+            <param name="iLeft">The i left.</param>
+            <param name="iTop">The i top.</param>
+            <param name="iWidth">Width of the i.</param>
+            <param name="iHeight">Height of the i.</param>
+            <param name="iLine">The i line.</param>
+            <param name="iWord">The i word.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRPageResult.Save(System.String)">
+            <summary>
+            Saves the specified s PRD file name.
+            </summary>
+            <param name="sPRDFileName">Name of the s PRD file.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRPageResult.Load(System.String)">
+            <summary>
+            Loads the specified s PRD file name.
+            </summary>
+            <param name="sPRDFileName">Name of the s PRD file.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRPageResult.GetLine(System.Int32)">
+            <summary>
+            Gets the line.
+            </summary>
+            <param name="iLineIndex">Index of the i line.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRPageResult.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRPageResult.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRPageResult.Resolution">
+            <summary>
+            Gets the resolution.
+            </summary>
+            <value>
+            The resolution.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRPageResult.GetNoOfLines">
+            <summary>
+            Gets the get no of lines.
+            </summary>
+            <value>
+            The get no of lines.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.OCRWordResult">
+            <summary>
+            OCRWordREsult class
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRWordResult.#ctor(TiS.Recognition.Common.TWord)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.COM.OCRWordResult"/> class.
+            </summary>
+            <param name="oWord">The o word.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.COM.OCRWordResult.GetChar(System.Int32)">
+            <summary>
+            Gets the character.
+            </summary>
+            <param name="iCharIndex">Index of the i character.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRWordResult.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRWordResult.GetNoOfChars">
+            <summary>
+            Gets the get no of chars.
+            </summary>
+            <value>
+            The get no of chars.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRWordResult.Style">
+            <summary>
+            Gets the style.
+            </summary>
+            <value>
+            The style.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRWordResult.Left">
+            <summary>
+            Gets the left.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRWordResult.Top">
+            <summary>
+            Gets the top.
+            </summary>
+            <value>
+            The top.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRWordResult.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.COM.OCRWordResult.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.TChars">
+            <summary>
+            TChars
+            </summary>
+        </member>
+        <member name="T:TiS.Recognition.Common.TBasicChar">
+            <summary>
+            TBasicChar
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TBasicChar.m_cCharData">
+            <summary>
+            The M_C character data
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TBasicChar.m_iConfidance">
+            <summary>
+            The m_i confidance
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TBasicChar.m_iOriginalConfi">
+            <summary>
+            The m_i original confi
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TBasicChar.#ctor(System.Char,System.Int16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TBasicChar"/> class.
+            </summary>
+            <param name="cCharData">The c character data.</param>
+            <param name="iConfidance">The i confidance.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TBasicChar.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TBasicChar.CompareTo(TiS.Recognition.Common.TBasicChar)">
+            <summary>
+            Compares to.
+            </summary>
+            <param name="oBasicChar">The o basic character.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.TBasicChar.CharData">
+            <summary>
+            Gets the character data.
+            </summary>
+            <value>
+            The character data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TBasicChar.Confidance">
+            <summary>
+            Gets the confidance.
+            </summary>
+            <value>
+            The confidance.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.TChar">
+            <summary>
+            TChar
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TChar.m_oCharCandidate">
+            <summary>
+            The m_o character candidate
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TChar.m_oRectangle">
+            <summary>
+            The m_o rectangle
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TChar"/> class.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.#ctor(System.Char,System.Int16,System.Char,System.Int16,TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TChar"/> class.
+            </summary>
+            <param name="cCharData">The c character data.</param>
+            <param name="iConfidance">The i confidance.</param>
+            <param name="cCharDataCand2">The c character data cand2.</param>
+            <param name="iConfidance2">The i confidance2.</param>
+            <param name="oRectangle">The o rectangle.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.#ctor(System.Char,System.Int16,TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TChar"/> class.
+            </summary>
+            <param name="cCharData">The c character data.</param>
+            <param name="iConfidance">The i confidance.</param>
+            <param name="oRectangle">The o rectangle.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.GetEnumerator">
+            <summary>
+            Gets the enumerator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.SortCandidates">
+            <summary>
+            Sorts the candidates.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.AddCandidate(TiS.Recognition.Common.TChar)">
+            <summary>
+            Adds the candidate.
+            </summary>
+            <param name="oNewCandidate">The o new candidate.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.CompareTo(TiS.Recognition.Common.TChar)">
+            <summary>
+            Compares the current object with another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+            A value that indicates the relative order of the objects being compared. The return value has the following meanings: Value Meaning Less than zero This object is less than the <paramref name="other" /> parameter.Zero This object is equal to <paramref name="other" />. Greater than zero This object is greater than <paramref name="other" />.
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.CompareLeft(TiS.Recognition.Common.TChar,TiS.Recognition.Common.TChar)">
+            <summary>
+            Compares the left.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.TChar.CharData">
+            <summary>
+            Gets the character data.
+            </summary>
+            <value>
+            The character data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TChar.Confidance">
+            <summary>
+            Gets the confidance.
+            </summary>
+            <value>
+            The confidance.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TChar.Rect">
+            <summary>
+            Gets the rect.
+            </summary>
+            <value>
+            The rect.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TChar.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TChar.Rectangle">
+            <summary>
+            Gets the rectangle.
+            </summary>
+            <value>
+            The rectangle.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.TChar.ConfidanceComparer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TChar.ConfidanceComparer.Compare(TiS.Recognition.Common.TChar,TiS.Recognition.Common.TChar)">
+            <summary>
+            Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="x">The first object to compare.</param>
+            <param name="y">The second object to compare.</param>
+            <returns>
+            A signed integer that indicates the relative values of <paramref name="x" /> and <paramref name="y" />, as shown in the following table.Value Meaning Less than zero<paramref name="x" /> is less than <paramref name="y" />.Zero<paramref name="x" /> equals <paramref name="y" />.Greater than zero<paramref name="x" /> is greater than <paramref name="y" />.
+            </returns>
+        </member>
+        <member name="T:TiS.Recognition.Common.TLine">
+            <summary>
+            TLine
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TLine.m_oWords">
+            <summary>
+            The m_o words
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TLine.m_oRect">
+            <summary>
+            The m_o rect
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TLine.m_oComparerWordLeft">
+            <summary>
+            The m_o comparer word left
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TLine.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TLine"/> class.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TLine.AddWord(TiS.Recognition.Common.TWord)">
+            <summary>
+            Adds the word.
+            </summary>
+            <param name="oWord">The o word.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TLine.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TLine.Word(System.Int32)">
+            <summary>
+            Words the specified i word.
+            </summary>
+            <param name="iWord">The i word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TLine.CompareTo(System.Object)">
+            <summary>
+            Compares to.
+            </summary>
+            <param name="oLine">The o line.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TLine.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.TLine.Y">
+            <summary>
+            Gets the y.
+            </summary>
+            <value>
+            The y.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TLine.Rect">
+            <summary>
+            Gets the rect.
+            </summary>
+            <value>
+            The rect.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TLine.Words">
+            <summary>
+            Gets or sets the words.
+            </summary>
+            <value>
+            The words.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TLine.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TLine.Confidance">
+            <summary>
+            Gets the confidance.
+            </summary>
+            <value>
+            The confidance.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TLine.Rectangle">
+            <summary>
+            Gets the rectangle.
+            </summary>
+            <value>
+            The rectangle.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.TOCRRect">
+            <summary>
+            TOCRRect class
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TOCRRect.m_iLeft">
+            <summary>
+            Left
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TOCRRect.m_iTop">
+            <summary>
+            Top
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TOCRRect.m_iWidth">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TOCRRect.m_iHeight">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TOCRRect.s_iXThreshold">
+            <summary>
+            x-axis threshold
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TOCRRect.s_iYThreshold">
+            <summary>
+            threshold for y-axis threshold
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TOCRRect"/> class.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TOCRRect"/> class.
+            </summary>
+            <param name="iLeft">The i left.</param>
+            <param name="iTop">The i top.</param>
+            <param name="iWidth">Width of the i.</param>
+            <param name="iHeight">Height of the i.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.#ctor(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TOCRRect"/> class.
+            </summary>
+            <param name="oRect">The o rect.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.#ctor(System.Drawing.Rectangle)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TOCRRect"/> class.
+            </summary>
+            <param name="oRect">The o rect.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.SetThresholds(System.Int32,System.Int32)">
+            <summary>
+            Sets the thresholds.
+            </summary>
+            <param name="iXThreshold">The i x threshold.</param>
+            <param name="iYThreshold">The i y threshold.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsEmpty">
+            <summary>
+            Determines whether this instance is empty.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsEqual(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Determines whether the specified o other rect is equal.
+            </summary>
+            <param name="oOtherRect">The o other rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsEqualTop(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Determines whether [is equal top] [the specified o other rect].
+            </summary>
+            <param name="oOtherRect">The o other rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsEqualBottom(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Determines whether [is equal bottom] [the specified o other rect].
+            </summary>
+            <param name="oOtherRect">The o other rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsEqualLeft(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Determines whether [is equal left] [the specified o other rect].
+            </summary>
+            <param name="oOtherRect">The o other rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsEqualRight(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Determines whether [is equal right] [the specified o other rect].
+            </summary>
+            <param name="oOtherRect">The o other rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsInside(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            return true if the oContainedRect contained this
+            </summary>
+            <param name="oContainedRect">The o contained rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.Add(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Adds the specified o rect.
+            </summary>
+            <param name="oRect">The o rect.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.Empty">
+            <summary>
+            Empties this instance.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.IsOverlap(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Determines whether the specified o rect is overlap.
+            </summary>
+            <param name="oRect">The o rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.OverlapRect(TiS.Recognition.Common.TOCRRect,TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Overlaps the rect.
+            </summary>
+            <param name="oRect">The o rect.</param>
+            <param name="oOverlapRect">The o overlap rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.op_Implicit(TiS.Recognition.Common.TOCRRect)~System.Drawing.Rectangle">
+            <summary>
+            Performs an implicit conversion from <see cref="T:TiS.Recognition.Common.TOCRRect"/> to <see cref="T:System.Drawing.Rectangle"/>.
+            </summary>
+            <param name="rect">The rect.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TOCRRect.op_Implicit(System.Drawing.Rectangle)~TiS.Recognition.Common.TOCRRect">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.Rectangle"/> to <see cref="T:TiS.Recognition.Common.TOCRRect"/>.
+            </summary>
+            <param name="rect">The rect.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="P:TiS.Recognition.Common.TOCRRect.Left">
+            <summary>
+            Gets the left.
+            </summary>
+            <value>
+            The left.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TOCRRect.Right">
+            <summary>
+            Gets the right.
+            </summary>
+            <value>
+            The right.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TOCRRect.Top">
+            <summary>
+            Gets the top.
+            </summary>
+            <value>
+            The top.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TOCRRect.Bottom">
+            <summary>
+            Gets the bottom.
+            </summary>
+            <value>
+            The bottom.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TOCRRect.Area">
+            <summary>
+            Gets the area.
+            </summary>
+            <value>
+            The area.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TOCRRect.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TOCRRect.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.COM.TStyle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.OCR">
+            <summary>
+            OCR
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.ICR">
+            <summary>
+            ICR
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.DotMatrix">
+            <summary>
+            Dot matrix
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.Italic">
+            <summary>
+            Italic
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.Blod">
+            <summary>
+            Bold
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.UnderLine">
+            <summary>
+            Underline
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.MonoSpace">
+            <summary>
+            Monospace
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.Serif">
+            <summary>
+            Serif
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.SansSerif">
+            <summary>
+            Sans serif
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.GrayBackgroud">
+            <summary>
+            Gray background
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.COM.TStyle.BlackBackgroud">
+            <summary>
+            Black background
+            </summary>
+        </member>
+        <member name="T:TiS.Recognition.Common.TPage">
+            <summary>
+            TPage class
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TPage"/> class.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserialization constructor.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.Deskew(TiS.Recognition.Common.TOCRRect)">
+            <summary>
+            Rotate the rectangle to be horizontal
+            </summary>
+            <param name="oRect">The o rect.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.SetWords(System.Collections.Generic.List{TiS.Recognition.Common.TWord},System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the words.
+            </summary>
+            <param name="oWords">The o words.</param>
+            <param name="iDeskewX">The i deskew x.</param>
+            <param name="iDeskewY">The i deskew y.</param>
+            <param name="iResolution">The i resolution.</param>
+            <param name="iImageWidth">Width of the i image.</param>
+            <param name="iImageHeight">Height of the i image.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.SaveToPRD(TiS.Recognition.Common.TPage,System.String)">
+            <summary>
+            Saves to PRD.
+            </summary>
+            <param name="prdPage">The PRD page.</param>
+            <param name="prdFilePath">The PRD file path.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.NormalizeHebLines(TiS.Recognition.Common.TLine)">
+            <summary>
+            Normalizes the heb lines.
+            </summary>
+            <param name="line">The line.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.CreateHebTCharString(TiS.Recognition.Common.TLine,System.Int32[],System.String)">
+            <summary>
+            Creates the hebrew character string.
+            </summary>
+            <param name="line">The line.</param>
+            <param name="newIndexes">The new indexes.</param>
+            <param name="lineData">The line data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.LoadFromPRD(System.String)">
+            <summary>
+            Loads from PRD.
+            </summary>
+            <param name="prdFilePath">The PRD file path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.CurrentDomain_AssemblyResolve(System.Object,System.ResolveEventArgs)">
+            <summary>
+            Handles the AssemblyResolve event of the CurrentDomain control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="args">The <see cref="T:System.ResolveEventArgs"/> instance containing the event data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.LoadFromRawData(System.Byte[])">
+            <summary>
+            Loads from raw data.
+            </summary>
+            <param name="oRawData">The o raw data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.MMtoPixel(System.Int32)">
+            <summary>
+            Ms the mto pixel.
+            </summary>
+            <param name="iMMvalue">The i m mvalue.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.Word(System.Int32,System.Int32)">
+            <summary>
+            Words the specified i line.
+            </summary>
+            <param name="iLine">The i line.</param>
+            <param name="iWord">The i word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.AddLine(TiS.Recognition.Common.TLine)">
+            <summary>
+            Adds the line.
+            </summary>
+            <param name="oLine">The o line.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.IsOldPrd(System.Byte[],System.IO.BinaryReader)">
+            <summary>
+            Recieves prd in bytes and MemoryStream and checks by the first bytes is the prd is old or not.
+            Notice: The Memory stream will be positioned after the version bytes.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.IsOldSetObjectDataRequired(System.Runtime.Serialization.SerializationInfo)">
+            <summary>
+            Returns wether the backwords compitability function of SetObjectData is required.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.WriteData(System.IO.BinaryWriter)">
+            <summary>
+            Recieves BinaryWriter, and writes the page data into the binary writer.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TPage.ReadData(System.IO.BinaryReader)">
+            <summary>
+            Recieves BinaryReader and page, and initialize the page from the reader.
+            </summary>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.ImageDeskew">
+            <summary>
+            Return the distance between X and Y  => Angle = ArcTng(Y/X)
+            </summary>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.ImageResolution">
+            <summary>
+            Gets the image resolution.
+            </summary>
+            <value>
+            The image resolution.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.ImageSize">
+            <summary>
+            Gets the size of the image.
+            </summary>
+            <value>
+            The size of the image.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.Lines">
+            <summary>
+            Gets the lines.
+            </summary>
+            <value>
+            The lines.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.NoOfLines">
+            <summary>
+            Gets the no of lines.
+            </summary>
+            <value>
+            The no of lines.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.NoOfWords">
+            <summary>
+            Gets the no of words.
+            </summary>
+            <value>
+            The no of words.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.Confidance">
+            <summary>
+            Gets the confidence.
+            </summary>
+            <value>
+            The confidence.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TPage.Rectangle">
+            <summary>
+            Gets the rectangle.
+            </summary>
+            <value>
+            The rectangle.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.TWords">
+            <summary>
+            TWords
+            </summary>
+        </member>
+        <member name="T:TiS.Recognition.Common.TWord">
+            <summary>
+            TWord : contains basic word data
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.m_oChars">
+            <summary>
+            The m_o chars
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.m_sWordData">
+            <summary>
+            The M_S word data
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.m_oRectangle">
+            <summary>
+            The m_o rectangle
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.m_iConfidance">
+            <summary>
+            The m_i confidance
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.m_iStyle">
+            <summary>
+            The m_i style
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.GetSecondCandidateData(System.Int32)">
+            <summary>
+            Gets the second candidate data.
+            </summary>
+            <param name="iMaxDistance">The i maximum distance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TWord"/> class.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.GetEnumerator">
+            <summary>
+            Gets the enumerator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.SortCandidates">
+            <summary>
+            Sorts the candidates.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.IsRelated(TiS.Recognition.Common.TWord)">
+            <summary>
+            Determines whether the specified and other word are related.
+            </summary>
+            <param name="oOtherWord">The other word.</param>
+            <returns>
+            True if other word is "related" to the current word
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.UpdateData">
+            <summary>
+            Updates the data.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.AddChar(TiS.Recognition.Common.TChar)">
+            <summary>
+            Adds the character to the word.
+            </summary>
+            <param name="oChar">The character.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.AddStyle(TiS.Recognition.Common.TWord.TStyle)">
+            <summary>
+            Adds the style.
+            </summary>
+            <param name="iStyle">The i style.</param>
+        </member>
+        <member name="P:TiS.Recognition.Common.TWord.Chars">
+            <summary>
+            Gets the chars.
+            </summary>
+            <value>
+            The chars.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TWord.Confidance">
+            <summary>
+            Gets the confidence.
+            </summary>
+            <value>
+            The confidence.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TWord.Rect">
+            <summary>
+            Gets the rect.
+            </summary>
+            <value>
+            The rect.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TWord.Style">
+            <summary>
+            Gets the style.
+            </summary>
+            <value>
+            The style.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TWord.WordData">
+            <summary>
+            Gets the word data.
+            </summary>
+            <value>
+            The word data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TWord.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:TiS.Recognition.Common.TWord.Rectangle">
+            <summary>
+            Gets the rectangle.
+            </summary>
+            <value>
+            The rectangle.
+            </value>
+        </member>
+        <member name="T:TiS.Recognition.Common.TWord.TStyle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.OCR">
+            <summary>
+            Ocr
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.ICR">
+            <summary>
+            Icr
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.DotMatrix">
+            <summary>
+            Dot matrix
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.Italic">
+            <summary>
+            Italic
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.Blod">
+            <summary>
+            Bold
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.UnderLine">
+            <summary>
+            Underline
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.MonoSpace">
+            <summary>
+            Monospace
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.Serif">
+            <summary>
+            Serif
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.SansSerif">
+            <summary>
+            Sans serif
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.GrayBackgroud">
+            <summary>
+            Gray background
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWord.TStyle.BlackBackgroud">
+            <summary>
+            Black background
+            </summary>
+        </member>
+        <member name="T:TiS.Recognition.Common.TWord.TComparerLeft">
+            <summary>
+            TComparerLeft
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWord.TComparerLeft.Compare(TiS.Recognition.Common.TWord,TiS.Recognition.Common.TWord)">
+            <summary>
+            Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="x">The first object to compare.</param>
+            <param name="y">The second object to compare.</param>
+            <returns>
+            A signed integer that indicates the relative values of <paramref name="x" /> and <paramref name="y" />, as shown in the following table.Value Meaning Less than zero<paramref name="x" /> is less than <paramref name="y" />.Zero<paramref name="x" /> equals <paramref name="y" />.Greater than zero<paramref name="x" /> is greater than <paramref name="y" />.
+            </returns>
+        </member>
+        <member name="T:TiS.Recognition.Common.TWordConfienceGarage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWordConfienceGarage.m_iWordConfiFactor">
+            <summary>
+            The m_i word confi factor
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWordConfienceGarage.m_iCharConfiFactor">
+            <summary>
+            The m_i character confi factor
+            </summary>
+        </member>
+        <member name="F:TiS.Recognition.Common.TWordConfienceGarage.m_oWorkingWord">
+            <summary>
+            The m_o working word
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TWordConfienceGarage"/> class.
+            </summary>
+            <param name="iWordConfiFactor">The i word confi factor.</param>
+            <param name="iCharConfiFactor">The i character confi factor.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TiS.Recognition.Common.TWordConfienceGarage"/> class.
+            </summary>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.SetFactor(System.Int32,System.Int32)">
+            <summary>
+            Sets the factor.
+            </summary>
+            <param name="iWordConfiFactor">The i word confi factor.</param>
+            <param name="iCharConfiFactor">The i character confi factor.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.SetWord(TiS.Recognition.Common.TWord)">
+            <summary>
+            Sets the word.
+            </summary>
+            <param name="oWord">The o word.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.SetWordConfidence(System.Int32)">
+            <summary>
+            Sets the word confidence.
+            </summary>
+            <param name="iWordConfi">The i word confi.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.AddWordConfidence(System.Int32)">
+            <summary>
+            Adds the word confidence.
+            </summary>
+            <param name="iWordConfi">The i word confi.</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.SetCharConfidence(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Sets the character confidence.
+            </summary>
+            <param name="iCharIndex">Index of the i character.</param>
+            <param name="iCandidateIndex">Index of the i candidate.</param>
+            <param name="iCharConfi">The i character confi.</param>
+            <param name="bWordOrder">if set to <c>true</c> [b word order].</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.AddCharConfidence(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Adds the character confidence.
+            </summary>
+            <param name="iCharIndex">Index of the i character.</param>
+            <param name="iCandidateIndex">Index of the i candidate.</param>
+            <param name="iCharConfi">The i character confi.</param>
+            <param name="bWordOrder">if set to <c>true</c> [b word order].</param>
+        </member>
+        <member name="M:TiS.Recognition.Common.TWordConfienceGarage.FixWordOrder">
+            <summary>
+            Fixes the word order.
+            </summary>
+        </member>
+    </members>
+</doc>

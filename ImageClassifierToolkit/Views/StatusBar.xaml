@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.Views.StatusBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tisconvert="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ValueConverter"
+             xmlns:u2u="clr-namespace:U2UConsult"
+             xmlns:vm="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ViewModels"
+             d:DesignHeight="103"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vm:StatusBarViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <tisconvert:TrueToVisibility x:Key="TrueToVisibility" />
+    </UserControl.Resources>
+    <Grid Height="30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Pages:" />
+            <TextBlock Text="{Binding NoOfPages}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Visibility="{Binding IsRunning,
+                                                      Converter={StaticResource TrueToVisibility}}">
+            <u2u:CircularProgressBar
+                                 Width="30"
+                                 HorizontalAlignment="Center"
+                                 Foreground="SteelBlue"
+                                 RotationsPerMinute="30"
+                                 StartupDelay="500"
+                                 Visibility="Visible"
+                                  />
+            <Button Width="100" Height="25" Content="Cancel" Click="Cancel_Click" Margin="20,0,0,0">
+                
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

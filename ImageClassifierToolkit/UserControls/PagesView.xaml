@@ -1,0 +1,180 @@
+﻿<UserControl x:Class="TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls.PagesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:convert="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ValueConverter"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pv="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls.PlainView"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:tisconvert="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ValueConverter"
+           
+             xmlns:uc="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.UserControls"
+             xmlns:vm="clr-namespace:TiS.Recognition.FieldClassifyService.FieldClassifyToolkit.ViewModels"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <tisconvert:FalseToVisibility x:Key="FalseToVisibility" />
+        <convert:PageNameToBitmapImage x:Key="PageNameToBitmapImage" />
+        <convert:AddNumConvert x:Key="AddNumConvert" />
+
+        <Style x:Key="PageBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="5" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsTrain}" Value="true">
+                    <Setter Property="Background" Value="LightGreen" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <DataTemplate x:Key="centralTile">
+            <Grid Margin="20,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border VerticalAlignment="Top"
+                        BorderThickness="0"
+                        Padding="5"
+                        Style="{StaticResource PageBorderStyle}">
+                    <Image Margin="0,5" Stretch="Uniform">
+                        <Image.Source>
+                            <MultiBinding Converter="{StaticResource PageNameToBitmapImage}">
+                                <MultiBinding.Bindings>
+                                    <Binding Path="FileName" />
+                                    <Binding Path="PageOrder" />
+                                </MultiBinding.Bindings>
+                            </MultiBinding>
+                        </Image.Source>
+                        <Image.Effect>
+                            <DropShadowEffect />
+                        </Image.Effect>
+                    </Image>
+                </Border>
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal"
+                            Visibility="{Binding IsTrain,
+                                                 Converter={StaticResource FalseToVisibility}}">
+                    <TextBlock Margin="0,0,10,0" Text="{Binding MatchClass}" />
+                    <TextBlock Text="{Binding MatchConfidence, StringFormat=P0}" />
+                </StackPanel>
+                <TextBlock Grid.Row="2"
+                           Text="{Binding Match}"
+                           Visibility="{Binding IsTrain,
+                                                Converter={StaticResource FalseToVisibility}}" />
+
+            </Grid>
+        </DataTemplate>
+
+        <!--
+            <pv:PlainView x:Key="tileView"
+            ItemHeight="150"
+            ItemTemplate="{StaticResource goldPagesTemp}"
+            ItemWidth="150" />
+        -->
+
+
+
+        <!--
+            <tiswpf:AutoRefreshCollectionViewSource x:Key="src" Source="{Binding Pages}">
+            <CollectionViewSource.SortDescriptions>
+            <scm:SortDescription Direction="Ascending" PropertyName="Match" />
+            <scm:SortDescription Direction="Ascending" PropertyName="GoldClass" />
+            <scm:SortDescription Direction="Descending" PropertyName="IsTrain" />
+            <scm:SortDescription Direction="Ascending" PropertyName="MatchClass" />
+            </CollectionViewSource.SortDescriptions>
+            <CollectionViewSource.GroupDescriptions>
+            <PropertyGroupDescription PropertyName="GoldClass" />
+            </CollectionViewSource.GroupDescriptions>
+            </tiswpf:AutoRefreshCollectionViewSource>
+            
+            <CollectionViewSource x:Key="src1" Source="{Binding Pages}">
+            <CollectionViewSource.SortDescriptions>
+            <scm:SortDescription Direction="Ascending" PropertyName="GoldClass" />
+            </CollectionViewSource.SortDescriptions>
+            </CollectionViewSource>
+        -->
+
+        <HierarchicalDataTemplate x:Key="CustomerGroupsTemplate" ItemsSource="{Binding Path=Items}" />
+
+        <DataTemplate x:Key="goldPagesTemp">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           FontSize="20"
+                           Text="{Binding GoldClass}" />
+                <ListView Grid.Row="1"
+                          ItemTemplate="{StaticResource centralTile}"
+                          ItemsSource="{Binding Pages}"
+                          SelectionChanged="pagesView_SelectionChanged">
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <uc:VirtualizingWrapPanel Width="{Binding ElementName=pagesListArea,
+                                                                      Path=ActualWidth,
+                                                                      Converter={StaticResource AddNumConvert},
+                                                                      ConverterParameter=-55}"
+                                                      Height="600"
+                                                      ItemHeight="300"
+                                                      ItemWidth="200" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65*" />
+            <ColumnDefinition Width="35*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Grid x:Name="pagesListArea" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <ToggleButton Name="viewTypeBotton"
+                          Width="50"
+                          Height="20"
+                          HorizontalAlignment="Left"
+                          Content="ViewType"
+                          IsChecked="False" />
+            <TreeView Name="pagesView"
+                      Grid.Row="1"
+                      ItemTemplate="{StaticResource goldPagesTemp}"
+                      ItemsSource="{Binding Pages}"
+                      VirtualizingStackPanel.IsVirtualizing="True"
+                      VirtualizingStackPanel.VirtualizationMode="Recycling" />
+
+        </Grid>
+
+
+
+        <Grid x:Name="imageArea"
+              Grid.Column="1"
+              Margin="0,30,0,0">
+            <Image Grid.Row="0"
+                   Margin="5,5"
+                   VerticalAlignment="Top"
+                   Source="{Binding SelectedImage}"
+                   Stretch="Uniform">
+                <Image.Effect>
+                    <DropShadowEffect />
+                </Image.Effect>
+            </Image>
+        </Grid>
+    </Grid>
+</UserControl>
